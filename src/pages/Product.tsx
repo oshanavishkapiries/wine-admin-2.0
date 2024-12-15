@@ -6,11 +6,13 @@ import { Pagination } from "@/components/common/Pagination";
 
 import { Input } from "@/components/ui/input";
 import CLoader from "@/components/common/CLoader";
+import CategorySelect from "@/components/section/product/CategorySelect";
 
 export default function ProductPage() {
   const [page, setPage] = useState(1);
   const [tableData, setTableData] = useState<Product[]>([]);
   const [totalPages, setTotalPages] = useState(0);
+  const [categoryId, setCategoryId] = useState(""); 
   const [search, setSearch] = useState("");
 
   const {
@@ -21,7 +23,7 @@ export default function ProductPage() {
   } = useProductListQuery({
     page,
     limit: 10,
-    categoryId: "",
+    categoryId, 
     search,
   }) as any;
 
@@ -52,19 +54,20 @@ export default function ProductPage() {
   };
 
   if (isLoading) {
-    return <CLoader className="h-[calc(100svh-80px)]" />;
+    return <CLoader />;
   }
 
   if (error) {
     return <div>Error loading data.</div>;
   }
 
-  console.log("products", products);
-
   return (
-    <div className="w-full min-h-screen px-2">
+    <div className="w-full p-2">
+      {/* Pass setCategoryId and categoryId to CategorySelect */}
+      <CategorySelect categoryId={categoryId} setCategoryId={setCategoryId} />
+
       {/* Search */}
-      <div className="flex items-center p-4 w-full">
+      <div className="flex items-center py-2 w-full">
         <Input
           placeholder="Search"
           className="w-full"
@@ -72,14 +75,15 @@ export default function ProductPage() {
           onChange={handleSearchChange}
         />
       </div>
-      {/* table */}
+
+      {/* Table */}
       {isFetching ? (
-        <CLoader className="h-52" />
+        <CLoader />
       ) : (
         <DataTable columns={columns} data={tableData} />
       )}
 
-      {/* pagination */}
+      {/* Pagination */}
       <Pagination
         currentPage={page}
         totalPages={totalPages}

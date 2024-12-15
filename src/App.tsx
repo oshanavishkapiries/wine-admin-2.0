@@ -1,14 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { routers } from "./data/routers";
+import { routers } from "./constant/routers";
 import { useGetMetaQuery } from "./features/api/metaSlice";
 
 function App() {
-
   useGetMetaQuery(undefined, {
     pollingInterval: 40000,
-    refetchOnMountOrArgChange: true
-});
-
+    refetchOnMountOrArgChange: true,
+  });
 
   return (
     <BrowserRouter>

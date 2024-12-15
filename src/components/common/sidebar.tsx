@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/sidebar";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
-import { sidebarItems } from "@/data/sider-navigation";
+import { sidebarItems } from "@/constant/sider-navigation";
 import { LogOut } from "lucide-react";
 
 export function ResponsiveSidebar() {

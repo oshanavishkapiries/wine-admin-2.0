@@ -1,4 +1,6 @@
 import { ColumnDef } from "@tanstack/react-table";
+import DeletePopup from "./DeletePopup";
+import ViewPopup from "./ViewPopup";
 
 export type Product = {
   id: string;
@@ -42,19 +44,13 @@ export const columns: ColumnDef<Product>[] = [
     cell: ({ getValue }) => `$${getValue<number>().toFixed(2)}`,
   },
   {
-    accessorKey: "action",
-    header: "Action",
+    accessorKey: "actions",
+    header: "Actions",
     cell: ({ row }) => (
-      <button
-        className="text-blue-500 hover:underline"
-        onClick={() => handleAction(row.original)}
-      >
-        View Details
-      </button>
+      <div className="flex space-x-2">
+        <ViewPopup item={row.original} />
+        <DeletePopup item={row.original} />
+      </div>
     ),
   },
 ];
-
-function handleAction(product: Product) {
-  alert(`Viewing details for ${product.productName}`);
-}
