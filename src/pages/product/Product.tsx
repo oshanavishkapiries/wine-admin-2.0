@@ -22,7 +22,7 @@ export default function ProductPage() {
     error,
   } = useProductListQuery({
     page,
-    limit: 10,
+    limit: 8,
     categoryId,
     search,
   }) as any;
@@ -38,6 +38,7 @@ export default function ProductPage() {
         qty: doc.qtyOnHand,
         vintage: doc.vintage?.year ? `${doc.vintage.year}` : "Unknown",
         unitPrice: doc.unitPrice,
+        imageUrl: doc.image,
       }));
 
       setTableData(transformedData);
@@ -80,7 +81,7 @@ export default function ProductPage() {
       {isFetching ? (
         <CLoader />
       ) : (
-        <DataTable columns={columns} data={tableData} />
+        <DataTable columns={columns} data={tableData} fortable={tableData} />
       )}
 
       {/* Pagination */}

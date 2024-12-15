@@ -32,7 +32,7 @@ const DeletePopup = (props: any) => {
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="outline">
-          <Trash />
+          <Trash className="text-red-500 font-bold" />
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">

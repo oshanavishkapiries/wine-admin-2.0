@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { useGetMetaQuery } from "@/features/api/metaSlice";
-import { useState } from "react";
 
 interface CategorySelectProps {
   categoryId: string;
@@ -11,7 +10,6 @@ const CategorySelect: React.FC<CategorySelectProps> = ({ categoryId, setCategory
   const {
     data: meta,
     isLoading,
-    isFetching,
   } = useGetMetaQuery(undefined, {
     pollingInterval: 40000,
     refetchOnMountOrArgChange: true,

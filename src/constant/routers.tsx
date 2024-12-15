@@ -12,6 +12,13 @@ type IRouter = {
 
 export const routers: IRouter[] = [
   {
+    name: "AuthPage",
+    path: "/",
+    component: pages.AuthPage,
+    layout: layouts.AuthLayout,
+    auth: false,
+  },
+  {
     name: "DashBoard",
     path: "/dashboard",
     component: pages.DashBoard,
