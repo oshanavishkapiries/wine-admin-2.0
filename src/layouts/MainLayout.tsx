@@ -8,6 +8,9 @@ const MainLayout = ({ children }: { children?: React.ReactNode }) => {
   const location = useLocation();
   const pathname = location.pathname;
 
+
+  
+
   return (
     <SidebarProvider>
       <div className="flex flex-row h-screen w-full">
@@ -16,7 +19,7 @@ const MainLayout = ({ children }: { children?: React.ReactNode }) => {
           <div className="p-4 sticky top-0 flex flex-row items-center gap-2 bg-background border-b border-gray-200 z-10">
             <SidebarTrigger />
             <h1 className="text-xl font-bold">
-              {sidebarItems.find((item) => item.href === pathname)?.title}
+              {sidebarItems.find((item) =>  pathname.includes(item.href))?.title}
             </h1>
           </div>
           <Toaster position="top-center" />

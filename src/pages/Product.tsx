@@ -12,7 +12,7 @@ export default function ProductPage() {
   const [page, setPage] = useState(1);
   const [tableData, setTableData] = useState<Product[]>([]);
   const [totalPages, setTotalPages] = useState(0);
-  const [categoryId, setCategoryId] = useState(""); 
+  const [categoryId, setCategoryId] = useState("");
   const [search, setSearch] = useState("");
 
   const {
@@ -23,7 +23,7 @@ export default function ProductPage() {
   } = useProductListQuery({
     page,
     limit: 10,
-    categoryId, 
+    categoryId,
     search,
   }) as any;
 

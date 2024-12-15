@@ -30,7 +30,7 @@ export function ResponsiveSidebar() {
         <SidebarMenu>
           {sidebarItems.map((item) => (
             <SidebarMenuItem className="px-2 py-1" key={item.href}>
-              <SidebarMenuButton className={pathname === item.href ? "bg-primary hover:bg-primary/50 text-white" : "hover:bg-primary/75 hover:text-white"} asChild >
+              <SidebarMenuButton className={pathname.includes(item.href) ? "bg-primary hover:bg-primary/50 text-white" : "hover:bg-primary/75 hover:text-white"} asChild >
                 <Link
                   to={item.href} 
                   className={cn(

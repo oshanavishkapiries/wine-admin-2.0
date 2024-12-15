@@ -29,7 +29,6 @@ const CategorySelect: React.FC<CategorySelectProps> = ({ categoryId, setCategory
   return (
     <div className="w-full flex justify-center items-center gap-2">
       {!isLoading &&
-        !isFetching &&
         categoryList.map((item: any) => (
           <Button
             variant="outline"

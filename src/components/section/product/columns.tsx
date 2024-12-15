@@ -1,6 +1,8 @@
 import { ColumnDef } from "@tanstack/react-table";
 import DeletePopup from "./DeletePopup";
-import ViewPopup from "./ViewPopup";
+import { Button } from "@/components/ui/button";
+import { Eye } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export type Product = {
   id: string;
@@ -48,7 +50,13 @@ export const columns: ColumnDef<Product>[] = [
     header: "Actions",
     cell: ({ row }) => (
       <div className="flex space-x-2">
-        <ViewPopup item={row.original} />
+        
+        <Link to={`/products/details?id=${row.original.id}`}>
+          <Button variant="outline">
+            <Eye /> View Product
+          </Button>
+        </Link>
+
         <DeletePopup item={row.original} />
       </div>
     ),

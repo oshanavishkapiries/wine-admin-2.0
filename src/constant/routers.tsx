@@ -13,7 +13,7 @@ type IRouter = {
 export const routers: IRouter[] = [
   {
     name: "DashBoard",
-    path: "/",
+    path: "/dashboard",
     component: pages.DashBoard,
     layout: layouts.MainLayout,
     auth: true,
@@ -22,6 +22,13 @@ export const routers: IRouter[] = [
     name: "Products",
     path: "/products",
     component: pages.Product,
+    layout: layouts.MainLayout,
+    auth: true,
+  },
+  {
+    name: "ProductDetails",
+    path: "/products/details",
+    component: pages.ProductDetailsPage,
     layout: layouts.MainLayout,
     auth: true,
   },
