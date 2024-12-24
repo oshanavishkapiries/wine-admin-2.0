@@ -27,6 +27,8 @@ const Setting = () => {
         return image ? image.imageUrl : ''; // Return the URL if found, otherwise an empty string
     };
 
+    console.log(Images)
+
     const handelUpdateImage = async (e) => {
         e.preventDefault();
         const file = e.target.files[0];

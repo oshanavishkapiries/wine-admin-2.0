@@ -10,12 +10,18 @@ import {Label} from "@/components/ui/label";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import {useState} from "react";
 import {useLoginMutation, useRegisterMutation} from "@/features/api/authSlice";
+import {Loader2} from "lucide-react";
+import {setUser} from "@/features/reducer/authSlice.ts";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 
 export function AuthPage() {
 
     const [signIn, {isLoading: idSignInLoading}] = useLoginMutation();
     const [signUp, {isLoading: isSugnUpLoading}] = useRegisterMutation();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [error, setError] = useState<string | null>(null);
     const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
@@ -72,33 +78,37 @@ export function AuthPage() {
 
     const handelSignIn = async () => {
         const isValid = validateSignInForm();
-        console.log(isValid);
         if (isValid) {
             try {
-                await signIn({email: signInForm.email, password: signInForm.password}).unwrap();
-                console.log("Success")
+                const res = await signIn({email: signInForm.email, password: signInForm.password}).unwrap();
+                await dispatch(setUser({token: res.data.token, userInfo: res.data.user}));
+                navigate("/dashboard");
             } catch (error) {
-                console.log("error")
+                console.error("Error during sign-in:", error); // Logs the actual error for debugging
                 setError("Invalid email or password.");
             }
         }
+
     };
 
     const handelSignUp = async () => {
         const isValid = validateSignUpForm();
-        console.log(isValid);
-        // if (isValid) {
-        //     try {
-        //         await signUp({
-        //             firstName: signUpForm.firstName,
-        //             lastName: signUpForm.lastName,
-        //             email: signUpForm.email,
-        //             password: signUpForm.password,
-        //         }).unwrap();
-        //     } catch (error) {
-        //         setError("Email already exists.");
-        //     }
-        // }
+        if (isValid) {
+            try {
+                await signUp({
+                    firstName: signUpForm.firstName,
+                    lastName: signUpForm.lastName,
+                    email: signUpForm.email,
+                    password: signUpForm.password,
+                    isEmailVerified: true,
+                    userType: 1,
+                }).unwrap();
+                console.log("Success")
+            } catch (error) {
+                console.log("error")
+                setError("Email already exists.");
+            }
+        }
     };
 
     return (
@@ -145,7 +155,12 @@ export function AuthPage() {
                             </div>
                         </CardContent>
                         <CardFooter>
-                            <Button onClick={() => handelSignIn()}>Sign In</Button>
+                            <Button onClick={() => handelSignIn()}>
+                                {
+                                    idSignInLoading ? <><Loader2 className="animate-spin"/> Please wait</>
+                                        : "Sign In"
+                                }
+                            </Button>
                         </CardFooter>
                     </Card>
                 </TabsContent>
@@ -225,7 +240,12 @@ export function AuthPage() {
                             </div>
                         </CardContent>
                         <CardFooter>
-                            <Button onClick={handelSignUp}>Sign Up</Button>
+                            <Button onClick={handelSignUp}>
+                                {
+                                    idSignInLoading ? <><Loader2 className="animate-spin"/> Please wait</>
+                                        : "Sign Up"
+                                }
+                            </Button>
                         </CardFooter>
                     </Card>
                 </TabsContent>

@@ -7,6 +7,7 @@ import OrderDetailsPage from "@/pages/orders/OrderDetailsPage";
 import Discount from "./discount/Discount";
 import Users from "./user/Users";
 import Setting from "./setting/Setting";
+import  NotFound from "./notFound/notFound";
 
 export {
     DashBoard,
@@ -18,4 +19,5 @@ export {
     Discount,
     Users,
     Setting,
+    NotFound
 };

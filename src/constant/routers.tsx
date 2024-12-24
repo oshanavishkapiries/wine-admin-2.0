@@ -10,7 +10,7 @@ type IRouter = {
     auth: boolean;
 };
 
-export const routers: IRouter[] = [
+export const publicRouters: IRouter[] = [
     {
         name: "AuthPage",
         path: "/",
@@ -18,6 +18,16 @@ export const routers: IRouter[] = [
         layout: layouts.AuthLayout,
         auth: false,
     },
+    {
+        name: "NotFound",
+        path: "*",
+        component: pages.NotFound,
+        layout: layouts.MainLayout,
+        auth: false,
+    },
+];
+
+export const authRouters: IRouter[] = [
     {
         name: "DashBoard",
         path: "/dashboard",
