@@ -1,10 +1,7 @@
 import {ColumnDef} from "@tanstack/react-table";
-import {Button} from "@/components/ui/button";
-import {Edit, Eye} from "lucide-react";
-import {Link, useNavigate} from "react-router-dom";
 import {Label} from "@radix-ui/react-label";
 
-export type Users = {
+export type IUsers = {
     createdAt: string;
     email: string;
     firstName: string;
@@ -20,10 +17,10 @@ export type Users = {
 };
 
 export type NavigationState = {
-    orders: Users[];
+    orders: IUsers[];
 };
 
-export const columns: ColumnDef<Users>[] = [
+export const columns: ColumnDef<IUsers>[] = [
     {
         accessorKey: "firstName",
         header: "First Name",

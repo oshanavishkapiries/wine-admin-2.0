@@ -1,18 +1,18 @@
 import {useEffect, useState} from "react";
-import {columns, User} from "@/components/section/users/columns";
+import {columns, IUsers} from "@/components/section/users/columns";
 import {DataTable} from "@/components/section/users/data-table";
 import {Pagination} from "@/components/common/Pagination";
 
-import {Input} from "@/components/ui/input";
+//import {Input} from "@/components/ui/input";
 import CLoader from "@/components/common/CLoader";
 import ErrorFetching from "@/components/common/ErrorFetching.tsx";
 import {useGetAllUserQuery} from "@/features/api/userSlice.ts";
 
 export default function Users() {
     const [page, setPage] = useState(1);
-    const [tableData, setTableData] = useState<User[]>([]);
+    const [tableData, setTableData] = useState<IUsers[]>([]);
     const [totalPages, setTotalPages] = useState(0);
-    const [search, setSearch] = useState("");
+    //const [search, setSearch] = useState("");
 
     const {
         data: users,
@@ -28,7 +28,7 @@ export default function Users() {
 
     useEffect(() => {
         if (users?.data) {
-            const transformedData: User[] = users.data.docs.map((doc: any) => ({
+            const transformedData: IUsers[] = users.data.docs.map((doc: any) => ({
                 createdAt: doc.createdAt,
                 email: doc.email,
                 firstName: doc.firstName,
@@ -53,9 +53,9 @@ export default function Users() {
         setPage(newPage);
     };
 
-    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearch(event.target.value);
-    };
+    // const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //     setSearch(event.target.value);
+    // };
 
     if (isLoading) {
         return <div className='h-[80vh] w-full flex items-center justify-center'><CLoader/></div>;

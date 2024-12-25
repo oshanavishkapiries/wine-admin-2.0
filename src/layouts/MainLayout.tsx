@@ -2,7 +2,6 @@ import { ResponsiveSidebar } from "@/components/common/sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { sidebarItems } from "@/constant/sider-navigation";
 import { useLocation } from "react-router-dom";
-import { Toaster } from "sonner";
 
 const MainLayout = ({ children }: { children?: React.ReactNode }) => {
   const location = useLocation();
@@ -22,7 +21,6 @@ const MainLayout = ({ children }: { children?: React.ReactNode }) => {
               {sidebarItems.find((item) =>  pathname.includes(item.href))?.title}
             </h1>
           </div>
-          <Toaster position="top-center" />
           {children}
         </div>
       </div>

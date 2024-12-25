@@ -1,7 +1,7 @@
 import {ColumnDef} from "@tanstack/react-table";
 import {Button} from "@/components/ui/button";
 import {Edit, Eye} from "lucide-react";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {Label} from "@radix-ui/react-label";
 
 export type Orders = {

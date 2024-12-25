@@ -7,6 +7,8 @@ import { Pagination } from "@/components/common/Pagination";
 import { Input } from "@/components/ui/input";
 import CLoader from "@/components/common/CLoader";
 import CategorySelect from "@/components/section/product/CategorySelect";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export default function ProductPage() {
   const [page, setPage] = useState(1);
@@ -66,6 +68,25 @@ export default function ProductPage() {
     <div className="w-full p-2">
       {/* Pass setCategoryId and categoryId to CategorySelect */}
       <CategorySelect categoryId={categoryId} setCategoryId={setCategoryId} />
+
+      {/* button grid */}
+      <div className="w-full gap-2 pt-2 flex justify-center items-center">
+        <Link to="/products/subcategory" className={`w-full`}>
+          <Button variant="outline" className={`w-full`}>
+            Catogory Manegement
+          </Button>
+        </Link>
+        <Link to="/products/discount" className={`w-full`}>
+          <Button variant="outline" className={`w-full`}>
+            Discount Manegement
+          </Button>
+        </Link>
+        <Link to="/products/add" className={`w-full`}>
+          <Button variant="outline" className={`w-full`}>
+            + Add products
+          </Button>
+        </Link>
+      </div>
 
       {/* Search */}
       <div className="flex items-center py-2 w-full">

@@ -18,7 +18,7 @@ const CustomButton = ({ onClick, text }:any) => {
         transition-all duration-300 ease-in-out
       "
             onClick={onClick}
-            type="text"
+            type="button"
             // ghost=""
         >
             {text}

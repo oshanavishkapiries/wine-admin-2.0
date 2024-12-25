@@ -1,13 +1,16 @@
 import DashBoard from "./DashBoard";
 import Product from "./product/Product";
 import ProductDetailsPage from "./product/ProductDetailsPage";
-import {AuthPage} from "./AuthPage";
+import {AuthPage} from "./authontication/AuthPage";
 import Orders from "./orders/Orders";
 import OrderDetailsPage from "@/pages/orders/OrderDetailsPage";
 import Discount from "./discount/Discount";
 import Users from "./user/Users";
 import Setting from "./setting/Setting";
-import  NotFound from "./notFound/notFound";
+import ProductAdd from "./product/ProductAdd"
+import NotFound from "./notFound/notFound";
+import ProductSubCategory from "./product/ProductSubCategory"
+import ProductDiscount from "./product/ProductDiscount"
 
 export {
     DashBoard,
@@ -19,5 +22,8 @@ export {
     Discount,
     Users,
     Setting,
+    ProductAdd,
+    ProductSubCategory,
+    ProductDiscount,
     NotFound
 };

@@ -16,7 +16,6 @@ import {
 import {TooltipProvider} from "@/components/ui/tooltip";
 import {
     Tooltip,
-    TooltipContent,
     TooltipTrigger,
 } from "@radix-ui/react-tooltip";
 
@@ -61,7 +60,7 @@ export function DataTable<TData, TValue>({columns, data, fortable,}: DataTablePr
                     <TooltipProvider>
                         {table.getRowModel().rows?.length ? (
                             table.getRowModel().rows.map((row, index) => (
-                                <Tooltip key={row.id}>
+                                <Tooltip key={index}>
                                     <TooltipTrigger asChild>
                                         <TableRow
                                             key={row.id}

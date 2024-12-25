@@ -44,8 +44,8 @@ export function DataTable<TData, TValue>({
       {/* Data Table */}
       <Table>
         <TableHeader>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
+          {table.getHeaderGroups().map((headerGroup,index:number) => (
+            <TableRow key={index}>
               {headerGroup.headers.map((header) => {
                 return (
                   <TableHead key={header.id}>
@@ -68,11 +68,11 @@ export function DataTable<TData, TValue>({
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <TableRow
-                      key={row.id}
+                      key={index}
                       data-state={row.getIsSelected() && "selected"}
                     >
-                      {row.getVisibleCells().map((cell) => (
-                        <TableCell key={cell.id} className="hover:bg-gray-100">
+                      {row.getVisibleCells().map((cell,index) => (
+                        <TableCell key={index} className="hover:bg-gray-100">
                           {flexRender(
                             cell.column.columnDef.cell,
                             cell.getContext()
