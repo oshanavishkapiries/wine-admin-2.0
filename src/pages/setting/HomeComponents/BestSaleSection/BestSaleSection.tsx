@@ -14,7 +14,7 @@ const BestSaleSection = () => {
         {/* Card Grid */}
         <div
             className="px-6 md:px-32 w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-8 items-center justify-items-center">
-            {[1, 2, 3, 4].map((item, index) => (
+            {[1, 2, 3, 4].map(() => (
                 <Card
                     className="flex flex-col justify-around w-full max-w-[300px] h-[506px] cursor-pointer relative overflow-hidden card-custom-shadow border-0"
                     style={{padding: '12px'}}

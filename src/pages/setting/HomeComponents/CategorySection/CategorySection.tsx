@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+
 
 const categories = [
   'Red Wine',
@@ -10,8 +10,8 @@ const categories = [
   'Cans & Cocktails',
 ];
 
-const CategorySection = ({ categoryImage }) => {
-  const navigate = useNavigate();
+const CategorySection = ({ categoryImage }: { categoryImage: string }) => {
+ 
   return (
       <section
           className="w-full h-auto bg-cover bg-center py-8"

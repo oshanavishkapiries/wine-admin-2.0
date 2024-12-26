@@ -1,5 +1,4 @@
-import React from 'react';
-import {useNavigate} from 'react-router-dom';
+
 import CustomButton from "@/components/section/settings/CustomButton/CustomButton.tsx";
 
 const HeroSection = ({backgroundImage, heroImage}:any) => {

@@ -18,18 +18,23 @@ const Setting = () => {
         isFetching: getImageIsFetching,
         error: getImageError,
         refetch,
-    } = useGetImageQuery();
+    } = useGetImageQuery({});
 
     const [imageUpdate, {isLoading, error}] = useUpdateImageMutation();
 
     const getImageBySection = (section: string) => {
-        const image = Images?.find((img) => img.section === section);
+        interface Image {
+            section: string;
+            imageUrl: string;
+        }
+
+        const image: Image | undefined = Images?.find((img: Image) => img.section === section);
         return image ? image.imageUrl : ''; // Return the URL if found, otherwise an empty string
     };
 
     console.log(Images)
 
-    const handelUpdateImage = async (e) => {
+    const handelUpdateImage = async (e:any) => {
         e.preventDefault();
         const file = e.target.files[0];
         if (!file) return;
@@ -40,7 +45,7 @@ const Setting = () => {
 
 
         try {
-            const result = await imageUpdate(updateImageData).unwrap();
+             await imageUpdate(updateImageData).unwrap();
 
             console.log("success");
             refetch();
@@ -134,7 +139,7 @@ const Setting = () => {
             </>
 
             {
-                Images?.map((image) => (
+                Images?.map((image:any) => (
                     <input key={image.section} onChange={handelUpdateImage} className='hidden' type="file"
                            name={image.section} id={image.section}/>
                 ))

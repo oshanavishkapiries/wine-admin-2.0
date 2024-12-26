@@ -1,6 +1,13 @@
-import React from 'react';
 
-const CardSection = ({ card1Image, card2Image, card3Image, card4Image }) => {
+
+interface CardSectionProps {
+  card1Image: string;
+  card2Image: string;
+  card3Image: string;
+  card4Image: string;
+}
+
+const CardSection = ({ card1Image, card2Image, card3Image, card4Image }: CardSectionProps) => {
   const cards = [
     { id: 1, image: card1Image, alt: 'Card 1' },
     { id: 2, image: card2Image, alt: 'Card 2' },

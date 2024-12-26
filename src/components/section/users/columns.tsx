@@ -1,5 +1,5 @@
 import {ColumnDef} from "@tanstack/react-table";
-import {Label} from "@radix-ui/react-label";
+import { Badge } from "@/components/ui/badge";
 
 export type IUsers = {
     createdAt: string;
@@ -38,12 +38,9 @@ export const columns: ColumnDef<IUsers>[] = [
         header: "Status",
         cell: ({row}) => (
             <div className="flex space-x-2">
-                <Label className={`px-5 py-1 rounded-full 
-                    ${row.original.isActive ? 'bg-green-400 text-white'
-                    : 'bg-red-500 text-white'}`}
-                >
+                <Badge variant={row.original.isActive ? "default" : "destructive"}>
                     {row.original.isActive ? "Active" : "Inactive"}
-                </Label>
+                </Badge>
             </div>
         ),
     },

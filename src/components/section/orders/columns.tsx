@@ -2,7 +2,7 @@ import {ColumnDef} from "@tanstack/react-table";
 import {Button} from "@/components/ui/button";
 import {Edit, Eye} from "lucide-react";
 import {useNavigate} from "react-router-dom";
-import {Label} from "@radix-ui/react-label";
+import { Badge } from "@/components/ui/badge";
 
 export type Orders = {
     mobileNumber: string;
@@ -47,14 +47,14 @@ export const columns: ColumnDef<Orders>[] = [
         header: "Status",
         cell: ({row}) => (
             <div className="flex space-x-2">
-                <Label className={`px-5 py-1 rounded-full 
-                    ${row.original.status.toLowerCase() === 'complete' ? 'bg-green-400 text-white'
-                    : row.original.status.toLowerCase() === 'cancelled' ? 'bg-red-500 text-white'
-                        : row.original.status.toLowerCase() == 'pending' ? 'bg-yellow-400 text-white' : ''}
-                            `}
-                >
+                <Badge variant={
+                    row.original.status.toLowerCase() === 'complete' ? 'default'
+                    : row.original.status.toLowerCase() === 'cancelled' ? 'destructive'
+                    : row.original.status.toLowerCase() === 'pending' ? 'secondary'
+                    : 'default'
+                }>
                     {row.original.status}
-                </Label>
+                </Badge>
             </div>
         ),
     },
