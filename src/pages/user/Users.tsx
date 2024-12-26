@@ -24,7 +24,7 @@ export default function Users() {
         limit: 10,
     }) as any;
 
-    console.log(users?.data?.docs);
+  
 
     useEffect(() => {
         if (users?.data) {
@@ -47,7 +47,7 @@ export default function Users() {
         }
     }, [users]);
 
-    console.log(tableData);
+
 
     const handlePageChange = (newPage: number) => {
         setPage(newPage);

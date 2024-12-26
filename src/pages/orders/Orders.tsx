@@ -23,7 +23,7 @@ export default function OrdersPage() {
         limit: 10,
     }) as any;
 
-    console.log(orders?.data?.docs);
+   
 
     useEffect(() => {
         if (orders?.data) {
@@ -48,7 +48,7 @@ export default function OrdersPage() {
         }
     }, [orders]);
 
-    console.log(tableData);
+    
 
     const handlePageChange = (newPage: number) => {
         setPage(newPage);

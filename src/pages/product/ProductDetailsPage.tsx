@@ -13,9 +13,7 @@ const ProductDetailsPage = () => {
 
   const product = parseProductData(products?.data);
 
-  console.log("products", products);
 
-  console.log("product", product);
 
   const handleBackClick = () => {
     navigate(-1);

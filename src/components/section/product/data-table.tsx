@@ -37,7 +37,7 @@ export function DataTable<TData, TValue>({
     getCoreRowModel: getCoreRowModel(),
   });
 
-  console.log("fortable", fortable);
+ 
 
   return (
     <div className="rounded-md border">

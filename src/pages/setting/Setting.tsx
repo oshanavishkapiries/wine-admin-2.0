@@ -32,8 +32,7 @@ const Setting = () => {
         return image ? image.imageUrl : ''; // Return the URL if found, otherwise an empty string
     };
 
-    console.log(Images)
-
+  
     const handelUpdateImage = async (e:any) => {
         e.preventDefault();
         const file = e.target.files[0];
@@ -47,10 +46,10 @@ const Setting = () => {
         try {
              await imageUpdate(updateImageData).unwrap();
 
-            console.log("success");
+       
             refetch();
         } catch (error) {
-            console.log("Image update failed");
+          
             console.error(error);
         }
     }
