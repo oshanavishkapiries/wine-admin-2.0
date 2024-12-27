@@ -1,6 +1,6 @@
 import { ResponsiveSidebar } from "@/components/common/sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { sidebarItems } from "@/constant/sider-navigation";
+import { sidebarItems } from "@/constants/sider-navigation";
 import { useLocation } from "react-router-dom";
 
 const MainLayout = ({ children }: { children?: React.ReactNode }) => {

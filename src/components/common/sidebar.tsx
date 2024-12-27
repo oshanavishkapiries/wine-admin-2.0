@@ -18,7 +18,7 @@ import {
     DialogDescription
 } from "@/components/ui/dialog";
 import {cn} from "@/lib/utils";
-import {sidebarItems} from "@/constant/sider-navigation";
+import {sidebarItems} from "@/constants/sider-navigation";
 import {LogOut} from "lucide-react";
 import {useDispatch} from "react-redux";
 import {clearUser} from "@/features/reducer/authSlice.ts";

@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { useGetMetaQuery } from "./features/api/metaSlice";
 import { useSelector } from "react-redux";
-import { authRouters, IRouter, publicRouters } from "@/constant/routers.tsx";
+import { authRouters, IRouter, publicRouters } from "@/constants/routers";
 import { Toaster } from "sonner";
 
 function App() {

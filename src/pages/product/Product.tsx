@@ -9,6 +9,7 @@ import CLoader from "@/components/common/CLoader";
 import CategorySelect from "@/components/section/product/CategorySelect";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { productDirectButton } from "@/constants/productDirectButton";
 
 export default function ProductPage() {
   const [page, setPage] = useState(1);
@@ -71,21 +72,13 @@ export default function ProductPage() {
 
       {/* button grid */}
       <div className="w-full gap-2 pt-2 flex justify-center items-center">
-        <Link to="/products/subcategory" className={`w-full`}>
-          <Button variant="outline" className={`w-full`}>
-            Catogory Manegement
-          </Button>
-        </Link>
-        <Link to="/products/discount" className={`w-full`}>
-          <Button variant="outline" className={`w-full`}>
-            Discount Manegement
-          </Button>
-        </Link>
-        <Link to="/products/add" className={`w-full`}>
-          <Button variant="outline" className={`w-full`}>
-            + Add products
-          </Button>
-        </Link>
+        {productDirectButton.map((item, index) => (
+          <Link key={index} to={item.path} className="w-full">
+            <Button variant="outline" className="w-full">
+              {item.label}
+            </Button>
+          </Link>
+        ))}
       </div>
 
       {/* Search */}
