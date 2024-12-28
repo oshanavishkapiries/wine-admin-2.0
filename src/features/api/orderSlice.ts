@@ -15,6 +15,12 @@ export const orderSlice = apiSlice.injectEndpoints({
                 method: "GET",
             }),
         }),
+        getOrderById: builder.query({
+            query: (id) => ({
+                url: `/orders/orders/${id}`,
+                method: "GET",
+            }),
+        }),
         updateOrder: builder.mutation({
             query: (data) => ({
                 url: `orders/${data.orderId}`,

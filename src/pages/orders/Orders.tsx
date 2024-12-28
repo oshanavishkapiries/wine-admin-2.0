@@ -23,7 +23,6 @@ export default function OrdersPage() {
         limit: 10,
     }) as any;
 
-   
 
     useEffect(() => {
         if (orders?.data) {
@@ -35,6 +34,9 @@ export default function OrdersPage() {
                 shippingAddress: doc.shippingAddress,
                 status: doc.status,
                 totalAmount: doc.totalAmount,
+                editable: doc.editable,
+                deliveryType: doc.deliveryType,
+                deliveryDate: doc.deliveryDate || '',
                 updatedAt: doc.updatedAt,
                 user: {
                     fullName: `${doc.user.firstName} ${doc.user.lastName}`,
@@ -48,7 +50,6 @@ export default function OrdersPage() {
         }
     }, [orders]);
 
-    
 
     const handlePageChange = (newPage: number) => {
         setPage(newPage);
@@ -81,7 +82,7 @@ export default function OrdersPage() {
 
             {/* Table */}
             {isFetching ? (
-                <CLoader/>
+                <div className="w-full flex items-center justify-center h-[80vh]"><CLoader/></div>
             ) : (
                 <DataTable columns={columns} data={tableData} fortable={tableData}/>
             )}
