@@ -11,6 +11,7 @@ import ProductAdd from "./product/ProductAdd"
 import NotFound from "./notFound/notFound";
 import ProductSubCategory from "./product/ProductSubCategory"
 import ProductDiscount from "./product/ProductDiscount"
+import ProductRegion from "./product/ProductRegion"
 
 export {
     DashBoard,
@@ -25,5 +26,6 @@ export {
     ProductAdd,
     ProductSubCategory,
     ProductDiscount,
+    ProductRegion,
     NotFound
 };

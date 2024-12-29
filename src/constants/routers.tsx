@@ -62,6 +62,12 @@ export const authRouters: IRouter[] = [
         layout: layouts.MainLayout,
     },
     {
+        name: "ProductRegions",
+        path: "/products/regions",
+        component: pages.ProductRegion,
+        layout: layouts.MainLayout,
+    },
+    {
         name: "Orders",
         path: "/orders",
         component: pages.Orders,

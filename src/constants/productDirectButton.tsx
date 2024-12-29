@@ -8,7 +8,7 @@ export const productDirectButton = [
       label: "Discount Management",
     },
     {
-      path: "/products/add",
+      path: "/products/regions",
       label: "Region Management",
     },
     {
