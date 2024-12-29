@@ -4,6 +4,7 @@ import ProductDetailsPage from "./product/ProductDetailsPage";
 import {AuthPage} from "./authontication/AuthPage";
 import Orders from "./orders/Orders";
 import OrderDetailsPage from "@/pages/orders/OrderDetailsPage";
+import OrderInvoice from "@/pages/orders/OrderInvoice";
 import Discount from "./discount/Discount";
 import Users from "./user/Users";
 import Setting from "./setting/Setting";
@@ -20,6 +21,7 @@ export {
     AuthPage,
     Orders,
     OrderDetailsPage,
+    OrderInvoice,
     Discount,
     Users,
     Setting,

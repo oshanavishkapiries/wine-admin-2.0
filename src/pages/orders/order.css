@@ -1,0 +1,26 @@
+@media print {
+    /* Hide elements not needed for printing */
+    body {
+        -webkit-print-color-adjust: exact; /* Ensures colors print as expected */
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    /* Prevent page margins from affecting the design */
+    @page {
+        margin: 0;
+    }
+
+    /* Adjust the layout to fit well on the printed page */
+    .min-h-screen {
+        min-height: auto;
+    }
+
+    /* Hide the back button and any navigation elements */
+    button,
+    nav {
+        display: none !important;
+    }
+}

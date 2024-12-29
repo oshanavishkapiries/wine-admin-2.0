@@ -7,6 +7,8 @@ import CLoader from "@/components/common/CLoader";
 import {useGetAllOrdersQuery} from "@/features/api/orderSlice.ts";
 import ErrorFetching from "@/components/common/ErrorFetching.tsx";
 
+import "./order.css";
+
 export default function OrdersPage() {
     const [page, setPage] = useState(1);
     const [tableData, setTableData] = useState<Orders[]>([]);
@@ -25,6 +27,7 @@ export default function OrdersPage() {
 
 
     useEffect(() => {
+        console.log(orders?.data)
         if (orders?.data) {
             const transformedData: Orders[] = orders.data.docs.map((doc: any) => ({
                 mobileNumber: doc.mobileNumber,

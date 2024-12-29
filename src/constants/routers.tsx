@@ -80,6 +80,12 @@ export const authRouters: IRouter[] = [
         layout: layouts.MainLayout,
     },
     {
+        name: "OrderInvoice",
+        path: "/orders/invoice",
+        component: pages.OrderInvoice,
+        layout: layouts.MainLayout,
+    },
+    {
         name: "Discount",
         path: "/discount",
         component: pages.Discount,

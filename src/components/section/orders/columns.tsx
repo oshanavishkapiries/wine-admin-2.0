@@ -1,6 +1,6 @@
 import {ColumnDef} from "@tanstack/react-table";
 import {Button} from "@/components/ui/button";
-import {Edit, Eye} from "lucide-react";
+import {Edit, Eye, Receipt, ReceiptText} from "lucide-react";
 import {useNavigate} from "react-router-dom";
 import {Badge} from "@/components/ui/badge";
 import {OrderViewDialog} from "@/components/section/orders/order-view-dialog..tsx";
@@ -75,6 +75,10 @@ export const columns: ColumnDef<Orders>[] = [
                 navigate("/orders/details", {state: {order}});
             };
 
+            const handleNavigateReceipt = (order: Orders) => {
+                navigate("/orders/invoice", {state: {order}});
+            };
+
             const handelEdit = (order: Orders) => {
                 setSelectedOrder(order)
                 setDialogOpen(true)
@@ -88,6 +92,9 @@ export const columns: ColumnDef<Orders>[] = [
                         </Button>
                         <Button variant='outline' onClick={() => handelEdit(row.original)}>
                             <Edit className="h-4 w-4"/>
+                        </Button>
+                        <Button variant="outline" onClick={() => handleNavigateReceipt(row.original)}>
+                            <ReceiptText className=" h-4 w-4"/>
                         </Button>
                     </div>
                     <OrderViewDialog
