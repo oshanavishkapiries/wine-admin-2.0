@@ -14,7 +14,6 @@ const ProductDetailsPage = () => {
   const product = parseProductData(products?.data);
 
 
-
   const handleBackClick = () => {
     navigate(-1);
   };
